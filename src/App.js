@@ -1,16 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import * as counterActions from "./store/counter/counter.actions";
 
 function App() {
+  const counterValue = useSelector((state) => state.counter.value);
+  const dispath = useDispatch();
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
+        <button
+          type="button"
+          onClick={() => dispath(counterActions.increment())}
+        >
+          Increment
+        </button>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Current Counter Value <code>{counterValue}</code>
         </p>
         <span>
           <span>Learn </span>
