@@ -15,7 +15,7 @@ import {
   counterActions,
 } from "./reducers";
 var suite = new Benchmark.Suite("Redux Benchmark");
-console.log("Nima Joooooooooon, we love you baby")
+
 suite
   .add("Default", async () => {
     const defaultCombinedReducers = defaultCombineReducers({
